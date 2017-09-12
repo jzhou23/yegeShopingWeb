@@ -1,0 +1,25 @@
+{
+  "name": "yegeshopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jzhou23/yegeShopingWeb.git"
+  },
+  "author": "jzhou23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jzhou23/yegeShopingWeb/issues"
+  },
+  "homepage": "https://github.com/jzhou23/yegeShopingWeb#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.11",
+    "nodemon": "^1.12.0"
+  }
+}
