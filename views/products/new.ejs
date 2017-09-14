@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<div class="container" style="width: 40%;">
+    <h2>Post a new prodcut</h2>
+    <hr>
+    <form action="/products" method="POST">
+        <div class="form-group">
+            <label class="control-label" for="title">Product title</label>
+            <input class="form-control" id="title" type="text" name="product[title]">
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="image">image url</label>
+            <input class="form-control" id="image" type="text" name="product[image]">
+        </div>
+            
+        <div class="form-group">
+            <label class="control-label" for="price">sale price</label>
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input id="price" type="number" class="form-control" min="0.0" step="0.1" name="product[price]">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="description">description</label>
+            <textarea class="form-control" id="description" rows="5" name="product[description]"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <button class="btn btn-primary btn-md btn-block">Submit</button>
+        </div>
+    </form>
+</div>
+
+<% include ../partials/footer %>
