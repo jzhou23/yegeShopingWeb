@@ -1,30 +1,30 @@
 <% include ../partials/header %>
 
 <div class="container" style="width: 40%;">
-    <h2>Post a new prodcut</h2>
+    <h2>Edit the prodcut of <%= product.title %></h2>
     <hr>
-    <form action="/products" method="POST">
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
         <div class="form-group">
             <label class="control-label" for="title">Product title</label>
-            <input class="form-control" id="title" type="text" name="product[title]">
+            <input class="form-control" id="title" type="text" name="product[title]" value="<%= product.title %>">
         </div>
         
         <div class="form-group">
             <label class="control-label" for="image">image url</label>
-            <input class="form-control" id="image" type="text" name="product[image]">
+            <input class="form-control" id="image" type="text" name="product[image]" value="<%= product.image %>">
         </div>
             
         <div class="form-group">
             <label class="control-label" for="price">sale price</label>
             <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input id="price" type="number" class="form-control" min="0.0" step="0.1" name="product[price]">
+                <input id="price" type="number" class="form-control" min="0.0" step="0.1" name="product[price]" value="<%= product.price %>">
             </div>
         </div>
         
         <div class="form-group">
             <label class="control-label" for="description">description</label>
-            <textarea class="form-control" id="description" rows="5" name="product[description]"></textarea>
+            <textarea class="form-control" id="description" rows="5" name="product[description]"><%= product.description %></textarea>
         </div>
         
         <div class="form-group">
@@ -32,7 +32,7 @@
         </div>
     </form>
     
-    <p><a href="/products">go back</a></p>
+    <p><a href="/products/<%= product._id %>">go back</a></p>
 </div>
 
 <% include ../partials/footer %>

@@ -6,6 +6,25 @@
             <p>A best place to buy something</p>
             <p><a class="btn btn-primary btn-lg" href="/products/new">post</a></p>
         </div>
+        
+        <div class="row" style="display:flex; flex-wrap: wrap;">
+            <% products.forEach(function(product){ %> 
+               
+               <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <img class="product-image" src="<%= product.image %>">
+                        <div class="caption">
+                            <h4><%= product.title %></h4>
+                            <p>$<%= product.price %><p>
+                            <a class="btn btn-sm btn-primary" href="/products/<%= product._id %>">more Info</a>
+                        </div>
+                    </div>
+               </div>
+                
+            <% }); %>
+        </div>
+        
+        
     </div>
 
 <% include ../partials/footer %>

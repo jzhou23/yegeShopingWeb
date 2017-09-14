@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <div class="row">
+            
+            <div>
+                <h2><%= product.title %></h2>
+                <p>$<%= product.price %></p>
+                <p><%= product.description %></p>
+                <img src="<%= product.image %>">
+                <p><a href="/products/<%= product._id %>/edit" class="btn btn-warning btn-md">Edit</a></p>
+                <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-md">Delete</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+<% include ../partials/footer %>
