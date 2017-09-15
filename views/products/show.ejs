@@ -2,18 +2,55 @@
 
     <div class="container">
         <div class="row">
-            
-            <div>
-                <h2><%= product.title %></h2>
-                <p>$<%= product.price %></p>
-                <p><%= product.description %></p>
-                <img src="<%= product.image %>">
-                <p><a href="/products/<%= product._id %>/edit" class="btn btn-warning btn-md">Edit</a></p>
-                <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger btn-md">Delete</button>
-                </form>
+            <div class="col-sm-12">
+                <div class="row"> 
+                    <div class="col-md-6">
+                        <img src="<%= product.image %>" class="img-thumbnail rounded full-width">    
+                    </div>
+                    <div class="col-md-6 product-info">
+                        <h2 class="product-title"><%= product.title %></h2> 
+                        <% if (currentUser && product.author.id.equals(currentUser._id)) { %>
+                            <div class="product-edit-delete">
+                                <a href="/products/<%= product._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                                <form class="delete-form" action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        <% } %>
+                        <p class="product-price">$<%= product.price %></p>
+
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs product-more-info">
+                    <li class="active"><a href="#detail" data-toggle="tab" aria-expanded="true">Detail</a></li>
+                    <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">Comments</a></li>
+                    <li class="disabled"><a>More</a></li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade active in content" id="detail">
+                        <%= product.description %>
+                    </div>
+                    <div class="tab-pane fade content" id="comments">
+                        <a class="btn btn-md btn-primary add-comment" href="/products/<%= product._id %>/comments/new">leave a comment</a>
+                        <div>
+                            <% product.comments.forEach(function(comment){ %>
+                                <div>
+                                    <p><strong><%= comment.author.username %></strong></p>
+                                    <p><%= comment.text %></p>
+                                    <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                                        <a class="btn btn-warning btn-sm"
+                                        href="/products/<%= product._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                                        <form class="delete-form" action="/products/<%= product._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
         </div>
     </div>
 

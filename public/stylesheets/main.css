@@ -1,0 +1,32 @@
+.full-width {
+    width: 100%;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.product-info {
+    position: relative;
+}
+
+.product-edit-delete {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.product-title {
+    font-size: 36px;
+}
+.product-price {
+    font-size: 32px;
+}
+
+.product-more-info {
+    margin-top: 30px;
+}
+
+.tab-content .content {
+    margin: 30px;
+}
